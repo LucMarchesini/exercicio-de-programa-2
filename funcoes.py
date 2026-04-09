@@ -29,18 +29,7 @@ def calcula_pontos_soma(lista):
     return soma
 
 def calcula_pontos_sequencia_baixa(lista):
-    seq = sorted(lista)
-    contar = 0
-    for i in range(len(seq)-1):
-        if seq[i+1] == seq[i]+1:
-            contar+=1
-    if contar>=3:
-        return 15
-    return 0
-"""
-def calcula_pontos_sequencia_baixa(lista):
     if (1 in lista and 2 in lista and 3 in lista and 4 in lista) or (2 in lista and 3 in lista and 4 in lista and 5 in lista) or (3 in lista and 4 in lista and 5 in lista and 6 in lista):
         return 15
     else:
         return 0
-"""
