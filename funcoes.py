@@ -39,3 +39,49 @@ def calcula_pontos_sequencia_alta(lista):
         return 30
     else:
         return 0
+
+def calcula_pontos_full_house(dados):
+    soma = 0
+    contas = [dados.count(1), dados.count(2), dados.count(3), dados.count(4), dados.count(5), dados.count(6)]
+    if contas.count(0) == 4:
+        for conta in contas:
+            if conta==4:
+                return 0
+    for f in dados:
+        soma+=f
+    return soma
+
+def calcula_pontos_quadra(dados):
+    soma = 0
+    for f in dados:
+        soma+=f
+    contas = [dados.count(1), dados.count(2), dados.count(3), dados.count(4), dados.count(5), dados.count(6)]
+    for i in contas:
+        if i>=4:
+            return soma
+    return 0
+
+def calcula_pontos_quina(dados):
+    numero = 0
+    for i in range(len(dados)):
+        numero = dados.count(dados[i])
+        if numero >= 5:
+            return 50
+    return 0
+
+def calcula_pontos_regra_avancada(dados):
+    pontos = {
+        'cinco_iguais': 0,
+        'full_house': 0,
+        'quadra': 0,
+        'sem_combinacao': 0,
+        'sequencia_alta': 0,
+        'sequencia_baixa': 0
+        }
+    pontos['cinco_iguais']=calcula_pontos_quina(dados)
+    pontos['full_house']=calcula_pontos_full_house(dados)
+    pontos['quadra']=calcula_pontos_quadra(dados)
+    pontos['sem_combinacao']=calcula_pontos_soma(dados)
+    pontos['sequencia_alta']=calcula_pontos_sequencia_alta(dados)
+    pontos['sequencia_baixa']=calcula_pontos_sequencia_baixa(dados)
+    return pontos
