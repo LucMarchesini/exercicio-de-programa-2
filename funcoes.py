@@ -21,3 +21,6 @@ def calcula_pontos_regra_simples(lista):
     conta1, conta2, conta3, conta4, conta5, conta6 = lista.count(1), lista.count(2), lista.count(3), lista.count(4), lista.count(5), lista.count(6)
     dic[1], dic[2], dic[3], dic[4], dic[5], dic[6] = 1*conta1, 2*conta2, 3*conta3, 4*conta4, 5*conta5, 6*conta6
     return dic
+
+def calcula_pontos_soma(lista):
+    return sum(lista)
