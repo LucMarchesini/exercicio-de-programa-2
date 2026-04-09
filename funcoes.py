@@ -85,3 +85,4 @@ def calcula_pontos_regra_avancada(dados):
     pontos['sequencia_alta']=calcula_pontos_sequencia_alta(dados)
     pontos['sequencia_baixa']=calcula_pontos_sequencia_baixa(dados)
     return pontos
+
