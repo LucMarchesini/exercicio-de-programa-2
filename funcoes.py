@@ -39,3 +39,15 @@ def calcula_pontos_sequencia_alta(lista):
         return 30
     else:
         return 0
+
+def calcula_pontos_full_house(dados):
+    soma = 0
+    contas = [dados.count(1), dados.count(2), dados.count(3), dados.count(4), dados.count(5), dados.count(6)]
+    if contas.count(0) == 4:
+        for conta in contas:
+            if conta==4:
+                return 0
+    for f in dados:
+        soma+=f
+    return soma
+               
