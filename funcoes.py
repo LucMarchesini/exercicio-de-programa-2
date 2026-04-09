@@ -47,7 +47,6 @@ def calcula_pontos_full_house(dados):
         for conta in contas:
             if conta==4:
                 return 0
-    for f in dados:
-        soma+=f
+        for f in dados:
+            soma+=f
     return soma
-               
