@@ -50,3 +50,13 @@ def calcula_pontos_full_house(dados):
         for f in dados:
             soma+=f
     return soma
+
+def calcula_pontos_quadra(dados):
+    soma = 0
+    for f in dados:
+        soma+=f
+    contas = [dados.count(1), dados.count(2), dados.count(3), dados.count(4), dados.count(5), dados.count(6)]
+    for i in contas:
+        if i>=4:
+            return soma
+    return 0
