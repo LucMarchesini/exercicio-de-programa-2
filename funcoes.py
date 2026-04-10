@@ -60,3 +60,12 @@ def calcula_pontos_quadra(dados):
         if i>=4:
             return soma
     return 0
+
+def calcula_pontos_quina(dados):
+    numero = 0
+    for i in range(len(dados)):
+        numero = dados.count(dados[i])
+        if numero >= 5:
+            return 50
+    return 0
+
