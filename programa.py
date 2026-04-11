@@ -107,3 +107,17 @@ while True: # Esse loop serve para verificar se a tabela esta completa e contemp
 
         else:
             print("Opção inválida. Tente novamente.")
+
+soma1 = 0
+for chave1 in cartela_de_pontos["regra_simples"]:
+    soma1 += cartela_de_pontos["regra_simples"][chave1]
+
+soma2 = 0
+for chave2 in cartela_de_pontos["regra_avancada"]:
+    soma2 += cartela_de_pontos["regra_avancada"][chave2]
+
+if soma1 >= 63: #BONUS
+    soma1 += 35
+
+imprime_cartela(cartela_de_pontos)
+print(f"Pontuação total: {soma1+soma2}")
