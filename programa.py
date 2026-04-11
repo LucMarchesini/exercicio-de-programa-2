@@ -56,7 +56,6 @@ while True: # Esse loop serve para verificar se a tabela esta completa e contemp
             rolados = dados_removidos[0]
             guardados = dados_removidos[1]
             break
-
         elif usuario == '3':
             if count_rolagens < 2:
                 rolados = rolar_dados(contador_para_rodar)
