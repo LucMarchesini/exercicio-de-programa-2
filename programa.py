@@ -68,3 +68,42 @@ while True: # Esse loop serve para verificar se a tabela esta completa e contemp
         elif usuario == '4': 
             imprime_cartela(cartela_de_pontos)
             break
+
+        elif usuario == '0':
+            print('Digite a combinação desejada:')
+
+            while True: # Esse loop garante que terá uma combinação digitada corretamente ou se já foi digitada anteriormente
+                combinacao = input()
+                if combinacao.isdigit() and int(combinacao) in cartela_de_pontos["regra_simples"]:
+                    if cartela_de_pontos["regra_simples"][int(combinacao)] != -1: #VERIFICAÇÃO PARA VER SE A JOGADA JA FOI FEITA
+                        print("Essa combinação já foi utilizada.")
+                    else:
+                        break
+                elif combinacao in cartela_de_pontos["regra_avancada"]:
+                    if cartela_de_pontos["regra_avancada"][combinacao] != -1: #VERIFICAÇÃO PARA VER SE A JOGADA JA FOI FEITA
+                        print("Essa combinação já foi utilizada.")
+                    else:
+                        break
+                else:
+                    print("Combinação inválida. Tente novamente.")
+       
+            count_rolagens = 0
+            todos_os_dados = rolados + guardados #A NOSSA FUNÇÃO UTILIZA TODOS OS DADOS, INDEPENDETE DE ONDE ESTAO.
+            cartela_de_pontos = faz_jogada(todos_os_dados, combinacao, cartela_de_pontos)
+
+            cartela_cheia_agora = True # Valida a cartela no instante analisado
+            for chave1 in cartela_de_pontos["regra_simples"]:
+                if cartela_de_pontos["regra_simples"][chave1] == -1:
+                    cartela_cheia_agora = False
+            for chave2 in cartela_de_pontos["regra_avancada"]:
+                if cartela_de_pontos["regra_avancada"][chave2] == -1:
+                    cartela_cheia_agora = False
+
+            if not cartela_cheia_agora:
+                guardados = []
+                contador_para_rodar = 5
+                rolados = rolar_dados(contador_para_rodar)
+            break
+
+        else:
+            print("Opção inválida. Tente novamente.")
