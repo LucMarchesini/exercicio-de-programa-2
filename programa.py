@@ -19,7 +19,7 @@ cartela_de_pontos = {
 
 imprime_cartela(cartela_de_pontos) # IMPRIME SEM PRINT
 rolados = rolar_dados(contador_para_rodar)
-
+#####1
 while True: # Esse loop serve para verificar se a tabela esta completa e contempla o jogo inteiro
     cartela_cheia = True
 
@@ -35,3 +35,15 @@ while True: # Esse loop serve para verificar se a tabela esta completa e contemp
 
     print(f'Dados rolados: {rolados}')
     print(f"Dados guardados: {guardados}")
+    print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:') # Solicitação para o usuário no print
+    
+    while True: # Roda o loop enquanto o usuário não digita uma entrada válida (opção das listas)
+        usuario = input()
+        if usuario == '1':
+            print('Digite o índice do dado a ser guardado (0 a 4):')
+            indice_guardar = int(input())
+            contador_para_rodar -= 1
+            dados_guardados = guardar_dado(rolados, guardados, indice_guardar)
+            rolados = dados_guardados[0]
+            guardados = dados_guardados[1]
+            break
