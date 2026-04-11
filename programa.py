@@ -19,7 +19,7 @@ cartela_de_pontos = {
 
 imprime_cartela(cartela_de_pontos) # IMPRIME SEM PRINT
 rolados = rolar_dados(contador_para_rodar)
-#####1
+
 while True: # Esse loop serve para verificar se a tabela esta completa e contempla o jogo inteiro
     cartela_cheia = True
 
@@ -47,3 +47,13 @@ while True: # Esse loop serve para verificar se a tabela esta completa e contemp
             rolados = dados_guardados[0]
             guardados = dados_guardados[1]
             break
+
+        elif usuario == '2':
+            print("Digite o índice do dado a ser removido (0 a 4):")
+            indice_remover = int(input())
+            contador_para_rodar += 1
+            dados_removidos = remover_dado(rolados, guardados, indice_remover)
+            rolados = dados_removidos[0]
+            guardados = dados_removidos[1]
+            break
+
